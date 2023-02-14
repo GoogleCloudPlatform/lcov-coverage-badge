@@ -1,0 +1,31 @@
+Notice, this project is governed by the terms of the LICENSE agreement.
+Please refer to the LICENSE file for additional information.
+
+In addition, this software is built upon and uses other Open Source Licenses.
+Please refer to package.json to identify those packages.
+
+List (Complete LICENSE LIST IS FOUND in dist/LICENSE with all current text).
+
+GitHub Actions:
+* @actions/core
+* @actions/github
+* @actions/http-client
+
+Node JS 16+
+* @tsconfig/node16
+* @types/node
+* eslint
+
+TypeScript
+* typescript
+
+Utilities:
+* sprintf-js
+* @vercel/ncc
+
+Testing:
+* @testmock/mocha
+* @types/mocha
+* chai
+* mocha
+* ts-mocha

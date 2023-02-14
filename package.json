@@ -1,0 +1,67 @@
+{
+  "name": "lcov_gh_badges",
+  "description": "A GitHub Action for creating markdown embeddable badges directory from an LCOV .dat file.",
+  "version": "1.0.0",
+  "author": "Ryan McGuinness",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/rrmcguinness/lcov_gh_badges/issues"
+  },
+  "homepage": "https://github.com/rrmcguinness/lcov_gh_badges#readme",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__test__"
+  },
+  "files": [
+    "lib",
+    "!.DS_Store"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -Rf ./lib && rm -Rf ./dist",
+    "lint": "eslint .",
+    "build": "tsc --declarationMap false",
+    "prepare": "npm run build && ncc build lib/index.js -o dist --license LICENSE",
+    "test": "ts-mocha -p __test__/tsconfig.json __test__/**/*.ts",
+    "tsc": "tsc",
+    "all": "npm run prepare && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrmcguinness/lcov_gh_badges.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript",
+    "lcov",
+    "Badge",
+    "Dynamic"
+  ],
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@actions/http-client": "^2.0.1",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.11.18",
+    "@types/sprintf-js": "^1.1.2",
+    "@vercel/ncc": "^0.36.0",
+    "eslint": "^8.32.0",
+    "sprintf-js": "^1.1.2",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@testdeck/mocha": "^0.3.3",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "ts-mocha": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=16.x"
+  }
+}

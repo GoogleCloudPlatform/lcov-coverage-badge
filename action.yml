@@ -1,0 +1,54 @@
+name: 'LCOV GitHub Badges'
+description: 'Generates Badges from LCOV files.'
+inputs:
+  file:
+    description: 'LCOV generated, combined, data file location from workspace root. Example: bazel-out/darwin-fastbuild/testlogs/pkg/<project_name>/<project_name>_test/coverage.dat '
+    required: true
+  access_token:
+    description: 'Access token used for writing files'
+    required: false
+  style:
+    description: 'One of five styles: plastic, flat, flat-square, for-the-badge, or social. The default is flat.'
+    required: false
+  icon_name:
+    description: 'The name of the icon for the badge, NONE if you do not want one. Default: Google Cloud'
+    required: false
+  label:
+    description: 'The label for the badge. Default: Coverage'
+    required: false
+  critical:
+    description: 'An integer value, displaying the critical color if at or below the value. Default: 60'
+    required: false
+  warning:
+    description: 'An integer value, displaying the warning color if above critical and below or equal to this threshold. Default: 75'
+    required: false
+  label_color:
+    description: 'A hex value for the label color. Default: ffffff'
+    required: false
+  message_color:
+    description: 'A hex value for the message color. Default ffffff'
+    required: false
+  success_color:
+    description: 'A hex value for the success color. Default: 43ad43 (green)'
+    required: false
+  warning_color:
+    description: 'A hex value for the warning color. Default: d68f0c (dark yellow)'
+    required: false
+  critical_color:
+    description: 'A hex value for the critical color. Default: 9c2c9c (dark red)'
+outputs:
+  coverage_functions_found:
+    description: 'The number of functions found'
+  coverage_functions_hit:
+    description: 'The number of functions hit'
+  coverage_lines_found:
+    description: 'The number of lines found'
+  coverage_lines_hit:
+    description: 'The number of lines hit'
+  coverage_score:
+    description: 'The score in percentage of total lines covered'
+  coverage_badge_url:
+    description: 'The URL used to generate the badge'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
