@@ -61,7 +61,7 @@ Example:
 ```yaml
 ...
 steps:
-- uses: GoogleCloudPlatform/github-badge-lcov@v1.0.0
+- uses: GoogleCloudPlatform/lcov-coverage-badgev@v1.0.0
   file: ./target/coverage.dat
   access_token: ${{ secret.COVERAGE_TOKEN }}
   style: flat
