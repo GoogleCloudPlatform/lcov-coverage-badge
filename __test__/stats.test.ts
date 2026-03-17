@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import {LcovStats} from '../src/stats'
+import {LcovStats} from '../src/stats.js';
 import {describe} from 'mocha';
-import {SetupActionEnvironmentFromArgv} from './test_util';
+import {SetupActionEnvironmentFromArgv} from './test_util.js';
 
 describe("Read a File", function() {
     SetupActionEnvironmentFromArgv();
@@ -26,7 +26,7 @@ describe("Read a File", function() {
     try {
         p.read();
         process.stdout.write(`Stats: ${p.coverage()}`);
-    } catch (err) {
+    } catch (err: any) {
         process.stdout.write("Error reading file: " + err.message)
     }
 })

@@ -15,8 +15,8 @@
  */
 
 import {describe} from 'mocha';
-import {run} from "../src";
-import {SetupActionEnvironmentFromArgv} from './test_util';
+import {run} from "../src/index.js";
+import {SetupActionEnvironmentFromArgv} from './test_util.js';
 
 
 describe("Main Test", function() {

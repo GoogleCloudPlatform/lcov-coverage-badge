@@ -18,9 +18,9 @@
 import * as core from "@actions/core";
 import * as http from "@actions/http-client";
 import fs from "fs";
-import {COVERAGE_SVG} from "./constants";
+import {COVERAGE_SVG} from "./constants.js";
 import * as fmt from "sprintf-js";
-import {Config} from "./config";
+import {Config} from "./config.js";
 import * as github from "@actions/github";
 
 function evaluateString(name: string, fallback: string): string {
@@ -34,7 +34,7 @@ function evaluateString(name: string, fallback: string): string {
 function evaluateNumber(name: string, fallback: number): number {
     let value = core.getInput(name)
     let out = parseInt(value)
-    if (isNaN(out) || out >= 0 || out < 100) {
+    if (isNaN(out) || out < 0 || out > 100) {
         out = fallback
     }
     return out
@@ -70,9 +70,9 @@ function updateOrCreateFile(accessToken: string, contents: string, sha: string) 
             email: 'build@github.com'
         },
         sha: sha
-    }).then(o => {
+    }).then((o: any) => {
         process.stdout.write("Finished writing file: " + o.data + "\n");
-    }).catch(e => {
+    }).catch((e: { message: string; }) => {
         process.stderr.write("Failed to create or update File: " + e.message + "\n");
     })
 }
@@ -89,7 +89,7 @@ function writeToGitHub(config: Config) {
             owner: context.repo.owner,
             repo: context.repo.repo,
             path: COVERAGE_SVG
-        }).then(value => {
+        }).then((value: any) => {
             if ('data' in value && 'sha' in value.data) {
                 const sha: string = value.data.sha as string
                 if (sha) {
@@ -99,7 +99,7 @@ function writeToGitHub(config: Config) {
                 core.warning("Failed to get hash from file, attempting a new file.")
                 throw(new Error("Failed to get hash"))
             }
-        }).catch(r => {
+        }).catch((r: { message: any; }) => {
             process.stdout.write(fmt.sprintf("Attempting to create file: %s\n", r.message));
             updateOrCreateFile(config.accessToken, contents, '')
         })
