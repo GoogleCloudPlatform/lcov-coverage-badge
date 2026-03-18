@@ -42,7 +42,7 @@ on:
 ```yaml
 ...
 steps:
-  - uses: GoogleCloudPlatform/github-badge-lcov@v1.0.0
+  - uses: GoogleCloudPlatform/github-badge-lcov@v1.1.0
     file: ./target/coverage.dat
 ```
 
