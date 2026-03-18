@@ -50,5 +50,5 @@ outputs:
   coverage_badge_url:
     description: 'The URL used to generate the badge'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'

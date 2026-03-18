@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import {Defaults, Icons, Props} from "./constants";
-import * as util from "./utils";
+import {Defaults, Icons, Props} from "./constants.js";
+import * as util from "./utils.js";
 import * as core from '@actions/core'
 import * as fmt from 'sprintf-js'
 

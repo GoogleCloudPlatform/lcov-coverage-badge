@@ -2,6 +2,7 @@
   "name": "lcov_gh_badges",
   "description": "A GitHub Action for creating markdown embeddable badges directory from an LCOV .dat file.",
   "version": "1.0.0",
+  "type": "module",
   "author": "Ryan McGuinness",
   "license": "Apache-2.0",
   "bugs": {
@@ -25,8 +26,8 @@
     "clean": "rm -Rf ./lib && rm -Rf ./dist",
     "lint": "eslint .",
     "build": "tsc --declarationMap false",
-    "prepare": "npm run build && ncc build lib/index.js -o dist --license LICENSE",
-    "test": "ts-mocha -p __test__/tsconfig.json __test__/**/*.ts",
+    "prepare": "npm run build && ncc build lib/index.js -o dist --license LICENSE -m",
+    "test": "NODE_OPTIONS='--import tsx' mocha __test__/**/*.ts",
     "tsc": "tsc",
     "all": "npm run prepare && npm run test"
   },
@@ -43,26 +44,36 @@
     "Dynamic"
   ],
   "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1",
-    "@actions/http-client": "^2.0.1",
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0",
+    "@actions/http-client": "^4.0.0",
     "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.11.18",
     "@types/sprintf-js": "^1.1.2",
-    "@vercel/ncc": "^0.36.0",
+    "diff": "^8.0.3",
     "eslint": "^8.32.0",
     "npm": "^10.2.0",
+    "serialize-javascript": "^7.0.4",
     "sprintf-js": "^1.1.2",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "undici": "^7.24.4"
+  },
+  "overrides": {
+    "diff": "^8.0.3",
+    "serialize-javascript": "^7.0.4",
+    "undici": "^7.24.4"
   },
   "devDependencies": {
     "@testdeck/mocha": "^0.3.3",
     "@types/mocha": "^10.0.1",
+    "@vercel/ncc": "^0.38.4",
     "chai": "^4.3.7",
-    "mocha": "^10.2.0",
-    "ts-mocha": "^10.0.0"
+    "esbuild": "^0.27.4",
+    "mocha": "^11.1.0",
+    "ts-mocha": "^11.1.0",
+    "tsx": "^4.21.0"
   },
   "engines": {
-    "node": ">=16.x"
+    "node": ">=20.x"
   }
 }

@@ -15,10 +15,10 @@
  */
 
 import * as core from '@actions/core';
-import {Config} from "./config";
-import {LcovStats} from "./stats";
-import {Outputs} from "./constants";
-import {generateBadge} from "./utils";
+import {Config} from "./config.js";
+import {LcovStats} from "./stats.js";
+import {Outputs} from "./constants.js";
+import {generateBadge} from "./utils.js";
 
 /**
  * This is the main program executed by the action.
