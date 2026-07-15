@@ -52,28 +52,28 @@
     "@types/sprintf-js": "^1.1.2",
     "diff": "^8.0.3",
     "eslint": "^8.32.0",
-    "npm": "^10.2.0",
+    "npm": "^12.0.1",
     "serialize-javascript": "^7.0.4",
     "sprintf-js": "^1.1.2",
     "typescript": "^4.9.4",
-    "undici": "^7.24.4"
+    "undici": "^7.28.0"
   },
   "overrides": {
     "diff": "^8.0.3",
     "serialize-javascript": "^7.0.4",
-    "undici": "^7.24.4"
+    "undici": "^7.28.0"
   },
   "devDependencies": {
     "@testdeck/mocha": "^0.3.3",
     "@types/mocha": "^10.0.1",
     "@vercel/ncc": "^0.38.4",
     "chai": "^4.3.7",
-    "esbuild": "^0.27.4",
+    "esbuild": "^0.28.1",
     "mocha": "^11.1.0",
     "ts-mocha": "^11.1.0",
     "tsx": "^4.21.0"
   },
   "engines": {
-    "node": ">=20.x"
+    "node": ">=22.x"
   }
 }
