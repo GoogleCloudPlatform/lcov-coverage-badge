@@ -39,8 +39,8 @@ class LineNumberHitCount {
 
     constructor(input: string) {
         if (input.startsWith(LCOV.LINE_NUMBER_AND_HIT_COUNT)) {
-            let startIndex = input.indexOf(TOKEN.COLON) + 1;
-            let values = input.substring(startIndex).split(TOKEN.COMMA)
+            const startIndex = input.indexOf(TOKEN.COLON) + 1;
+            const values = input.substring(startIndex).split(TOKEN.COMMA)
             if (values.length === 2) {
                 this.lineNumber = parseInt(values[0]);
                 this.hitCount = parseInt(values[1])
@@ -73,9 +73,9 @@ class FileStats {
         if (line.startsWith(LCOV.END_OF_RECORD)) {
             return false;
         } else {
-            let colonIndex = line.indexOf(TOKEN.COLON)
-            let token = line.substring(0, colonIndex)
-            let values = line.substring(colonIndex + 1).split(TOKEN.COMMA)
+            const colonIndex = line.indexOf(TOKEN.COLON)
+            const token = line.substring(0, colonIndex)
+            const values = line.substring(colonIndex + 1).split(TOKEN.COMMA)
             switch (token) {
                 case LCOV.FUNCTIONS_FOUND:
                     this.functionsFound = parseInt(values[0]);
@@ -85,6 +85,7 @@ class FileStats {
                     break;
                 case LCOV.LINE_NUMBER_AND_HIT_COUNT:
                     this.insertLineNumberHitCount(line);
+                    break;
                 case LCOV.LINES_FOUND:
                     this.linesFound = parseInt(values[0]);
                     break;
@@ -112,7 +113,7 @@ class LcovStats {
 
     read() {
         if (!this.processed) {
-            let content = fs.readFileSync(this.fileName, 'utf-8')
+            const content = fs.readFileSync(this.fileName, 'utf-8')
             let fileStats: FileStats;
             content.split(/\r?\n/).forEach(line => {
                 if (line.startsWith(LCOV.SOURCE_FILE)) {

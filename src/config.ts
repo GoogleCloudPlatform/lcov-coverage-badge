@@ -82,7 +82,7 @@ class Config {
      * @param coverage
      */
     imageURL(coverage: number): string {
-        let parts = new Array<String>();
+        const parts = new Array<string>();
         parts.push(fmt.sprintf(Icons.LABEL, this.label));
         parts.push(fmt.sprintf(Icons.LABEL_COLOR, this.labelColor));
         parts.push(fmt.sprintf(Icons.LOGO, this.icon));

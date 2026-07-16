@@ -22,11 +22,13 @@ describe("Read a File", function() {
     SetupActionEnvironmentFromArgv();
 
     // This requires npm test to be run from the root directory.
-    let p = new LcovStats("__test__/coverage.dat");
+    const p = new LcovStats("__test__/coverage.dat");
     try {
         p.read();
         process.stdout.write(`Stats: ${p.coverage()}`);
-    } catch (err: any) {
-        process.stdout.write("Error reading file: " + err.message)
+    } catch (err) {
+        if (err instanceof Error) {
+            process.stdout.write("Error reading file: " + err.message);
+        }
     }
 })

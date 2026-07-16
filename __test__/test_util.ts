@@ -23,7 +23,7 @@ function SetupActionEnvironmentFromArgv() {
             if (previousKey.startsWith("--")) {
                 previousKey = previousKey.substring(2);
             }
-            let processKey = `INPUT_${previousKey.replace(/ /g, '_').toUpperCase()}`
+            const processKey = `INPUT_${previousKey.replace(/ /g, '_').toUpperCase()}`
             process.env[processKey] = val
         }
     })

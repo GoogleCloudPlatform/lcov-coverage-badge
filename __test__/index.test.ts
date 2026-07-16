@@ -21,5 +21,5 @@ import {SetupActionEnvironmentFromArgv} from './test_util.js';
 
 describe("Main Test", function() {
   SetupActionEnvironmentFromArgv();
-  let promise = run()
+  run();
 })
