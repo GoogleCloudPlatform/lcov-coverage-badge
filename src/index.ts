@@ -35,7 +35,7 @@ import {generateBadge} from "./utils.js";
  */
 async function run() {
     try {
-        let config = new Config();
+        const config = new Config();
 
         if (!config.validate()) {
             core.error('Invalid Configuration, please check the logs');
@@ -43,11 +43,11 @@ async function run() {
         }
 
         // Compute the statistics
-        let stats = new LcovStats(config.file);
-        let coverage = stats.coverage();
+        const stats = new LcovStats(config.file);
+        const coverage = stats.coverage();
 
         // Generate the badge URL
-        let badgeURL = config.imageURL(coverage);
+        const badgeURL = config.imageURL(coverage);
 
         // Generate the Badge File
         generateBadge(config, badgeURL)

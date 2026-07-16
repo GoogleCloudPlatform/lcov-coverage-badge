@@ -51,7 +51,6 @@
     "@types/node": "^18.11.18",
     "@types/sprintf-js": "^1.1.2",
     "diff": "^8.0.3",
-    "eslint": "^8.32.0",
     "npm": "^12.0.1",
     "serialize-javascript": "^7.0.4",
     "sprintf-js": "^1.1.2",
@@ -62,14 +61,18 @@
     "diff": "^8.0.3",
     "serialize-javascript": "^7.0.4",
     "undici": "^7.28.0",
-    "punycode": "^2.3.1"
+    "punycode": "^2.3.1",
+    "minimatch": "^10.0.0"
   },
   "devDependencies": {
     "@testdeck/mocha": "^0.3.3",
     "@types/mocha": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "@vercel/ncc": "^0.38.4",
     "chai": "^4.3.7",
     "esbuild": "^0.28.1",
+    "eslint": "^8.32.0",
     "mocha": "^11.1.0",
     "ts-mocha": "^11.1.0",
     "tsx": "^4.21.0"

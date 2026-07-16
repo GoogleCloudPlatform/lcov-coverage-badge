@@ -32,7 +32,7 @@ function evaluateString(name: string, fallback: string): string {
 }
 
 function evaluateNumber(name: string, fallback: number): number {
-    let value = core.getInput(name)
+    const value = core.getInput(name)
     let out = parseInt(value)
     if (isNaN(out) || out < 0 || out > 100) {
         out = fallback
@@ -41,7 +41,7 @@ function evaluateNumber(name: string, fallback: number): number {
 }
 
 function generateBadge(config: Config, badgeURL: string) {
-    let client: http.HttpClient = new http.HttpClient()
+    const client: http.HttpClient = new http.HttpClient()
     client.get(badgeURL).then((r: http.HttpClientResponse) => {
         r.readBody().then((b: string) => {
             fs.writeFile(COVERAGE_SVG, b, (err) => {
@@ -70,7 +70,7 @@ function updateOrCreateFile(accessToken: string, contents: string, sha: string) 
             email: 'build@github.com'
         },
         sha: sha
-    }).then((o: any) => {
+    }).then((o) => {
         process.stdout.write("Finished writing file: " + o.data + "\n");
     }).catch((e: { message: string; }) => {
         process.stderr.write("Failed to create or update File: " + e.message + "\n");
@@ -89,9 +89,9 @@ function writeToGitHub(config: Config) {
             owner: context.repo.owner,
             repo: context.repo.repo,
             path: COVERAGE_SVG
-        }).then((value: any) => {
-            if ('data' in value && 'sha' in value.data) {
-                const sha: string = value.data.sha as string
+        }).then((value) => {
+            if ('data' in value && 'sha' in (value.data as Record<string, unknown>)) {
+                const sha: string = (value.data as Record<string, unknown>).sha as string
                 if (sha) {
                     updateOrCreateFile(config.accessToken, contents, sha)
                 }
@@ -99,7 +99,7 @@ function writeToGitHub(config: Config) {
                 core.warning("Failed to get hash from file, attempting a new file.")
                 throw(new Error("Failed to get hash"))
             }
-        }).catch((r: { message: any; }) => {
+        }).catch((r: { message: string }) => {
             process.stdout.write(fmt.sprintf("Attempting to create file: %s\n", r.message));
             updateOrCreateFile(config.accessToken, contents, '')
         })
