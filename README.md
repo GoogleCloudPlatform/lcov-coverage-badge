@@ -42,8 +42,9 @@ on:
 ```yaml
 ...
 steps:
-  - uses: GoogleCloudPlatform/github-badge-lcov@v1.1.0
-    file: ./target/coverage.dat
+  - uses: GoogleCloudPlatform/lcov-coverage-badge@v2.0.0
+    with:
+      file: ./target/coverage.dat
 ```
 
 ### Add the badge
@@ -61,20 +62,21 @@ Example:
 ```yaml
 ...
 steps:
-- uses: GoogleCloudPlatform/lcov-coverage-badgev@v1.0.0
-  file: ./target/coverage.dat
-  access_token: ${{ secret.COVERAGE_TOKEN }}
-  style: flat
-  icon_name: googlecloud,
-  icon_color: 'ffffff',
-  label: 'Coverage'
-  label_color: 'ffffff'
-  critical: 60
-  criticalColor: '9c2c9c'
-  warning: 75
-  warningColor: 'd68f0c'
-  success_color: '43ad43'
-  message_color: 'ffffff'
+  - uses: GoogleCloudPlatform/lcov-coverage-badge@v2.0.0
+    with:
+      file: ./target/coverage.dat
+      access_token: ${{ secrets.COVERAGE_TOKEN }}
+      style: flat
+      icon_name: googlecloud
+      icon_color: 'ffffff'
+      label: 'Coverage'
+      label_color: 'ffffff'
+      critical: 60
+      critical_color: '9c2c9c'
+      warning: 75
+      warning_color: 'd68f0c'
+      success_color: '43ad43'
+      message_color: 'ffffff'
 ```
 
 ## Output Variables

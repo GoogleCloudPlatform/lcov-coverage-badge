@@ -50,5 +50,36 @@ outputs:
   coverage_badge_url:
     description: 'The URL used to generate the badge'
 runs:
-  using: 'node20'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Install dependencies
+      shell: bash
+      run: npm ci
+      working-directory: ${{ github.action_path }}
+
+    - name: Build TypeScript
+      shell: bash
+      run: npm run build
+      working-directory: ${{ github.action_path }}
+
+    - name: Execute LCOV Coverage Badge Generator
+      shell: bash
+      run: node ${{ github.action_path }}/lib/index.js
+      env:
+        INPUT_FILE: ${{ inputs.file }}
+        INPUT_ACCESS_TOKEN: ${{ inputs.access_token }}
+        INPUT_STYLE: ${{ inputs.style }}
+        INPUT_ICON_NAME: ${{ inputs.icon_name }}
+        INPUT_LABEL: ${{ inputs.label }}
+        INPUT_CRITICAL: ${{ inputs.critical }}
+        INPUT_WARNING: ${{ inputs.warning }}
+        INPUT_LABEL_COLOR: ${{ inputs.label_color }}
+        INPUT_MESSAGE_COLOR: ${{ inputs.message_color }}
+        INPUT_SUCCESS_COLOR: ${{ inputs.success_color }}
+        INPUT_WARNING_COLOR: ${{ inputs.warning_color }}
+        INPUT_CRITICAL_COLOR: ${{ inputs.critical_color }}
