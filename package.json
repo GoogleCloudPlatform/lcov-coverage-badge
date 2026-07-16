@@ -27,7 +27,7 @@
     "lint": "eslint .",
     "build": "tsc --declarationMap false",
     "prepare": "npm run build && ncc build lib/index.js -o dist --license LICENSE -m",
-    "test": "NODE_OPTIONS='--import tsx' mocha __test__/**/*.ts",
+    "test": "NODE_ENV=test NODE_OPTIONS='--import tsx' mocha __test__/**/*.ts",
     "tsc": "tsc",
     "all": "npm run prepare && npm run test"
   },
@@ -61,7 +61,8 @@
   "overrides": {
     "diff": "^8.0.3",
     "serialize-javascript": "^7.0.4",
-    "undici": "^7.28.0"
+    "undici": "^7.28.0",
+    "punycode": "^2.3.1"
   },
   "devDependencies": {
     "@testdeck/mocha": "^0.3.3",
@@ -74,6 +75,6 @@
     "tsx": "^4.21.0"
   },
   "engines": {
-    "node": ">=22.x"
+    "node": ">=24.x"
   }
 }

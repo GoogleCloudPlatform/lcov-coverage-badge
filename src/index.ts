@@ -73,4 +73,6 @@ async function run() {
 
 export {run}
 
-run();
+if (process.env.NODE_ENV !== 'test') {
+    run();
+}
