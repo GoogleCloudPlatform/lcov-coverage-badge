@@ -1,7 +1,7 @@
 {
   "name": "lcov_gh_badges",
   "description": "A GitHub Action for creating markdown embeddable badges directory from an LCOV .dat file.",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "type": "module",
   "author": "Ryan McGuinness",
   "license": "Apache-2.0",

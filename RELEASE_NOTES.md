@@ -10,6 +10,9 @@
     }
 </style>
 
+## 2.1.0
+Updated the uml to use @v7 of the setup-node actions.
+
 ## 2.0.0
 <span class="release_date">15 JUL 2026</span>
 
