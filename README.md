@@ -58,6 +58,12 @@ Example:
 
 ![coverage](coverage.svg)
 
+## Generate a GitHub secret
+
+* Generate a Fine-Grained Token: In your GitHub Developer Settings, create a fine-grained Personal Access Token restricted to your specific repository, granting Read and write permissions under the Contents section.
+
+* Save as a Repository Secret: Navigate to your repository's Settings > Secrets and variables > Actions, and add the generated token as a new repository secret named exactly COVERAGE_TOKEN.
+
 ## Complete Configuration
 ```yaml
 ...
