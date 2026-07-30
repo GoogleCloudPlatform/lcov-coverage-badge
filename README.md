@@ -42,7 +42,7 @@ on:
 ```yaml
 ...
 steps:
-  - uses: GoogleCloudPlatform/lcov-coverage-badge@v2.0.0
+  - uses: GoogleCloudPlatform/lcov-coverage-badge@v2.1.0
     with:
       file: ./target/coverage.dat
 ```
@@ -68,7 +68,7 @@ Example:
 ```yaml
 ...
 steps:
-  - uses: GoogleCloudPlatform/lcov-coverage-badge@v2.0.0
+  - uses: GoogleCloudPlatform/lcov-coverage-badge@v2.1.0
     with:
       file: ./target/coverage.dat
       access_token: ${{ secrets.COVERAGE_TOKEN }}
